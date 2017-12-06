@@ -9,6 +9,7 @@ function huffman(dictionary, input) {
 		}
 
 		$(input+"Huffman").innerHTML = result;
+		console.log(dictionary)
 	}
 
 	_improvingDictionary = function(dictionary) {
