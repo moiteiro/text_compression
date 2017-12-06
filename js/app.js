@@ -1,83 +1,34 @@
-function _compressSequence(lastLetter, letterCount) {
-	if (letterCount > 3) {
-		
-		return "!" + lastLetter + letterCount;
-		
-	} else {
-		// cheat
-		return Array(letterCount + 1).join(lastLetter);
-	}
-}
+// function RLE2(text) {
 
-function RLE2(text) {
+// 	var lastLetter = "";
+// 	var letterCount = 1;
+// 	var result = "";
 
-	var lastLetter = "";
-	var letterCount = 1;
-	var result = "";
+// 	var step = 1;
+// 	for (i = 0; i < text.length; i++) {
 
-	var step = 1;
-	for (i = 0; i < text.length; i++) {
+// 		var string = text.substring(i, step + i);
 
-		var string = text.substring(i, step + i);
+// 		if (string.length == step) {
 
-		if (string.length == step) {
+// 			if (lastLetter == letter) {
 
-			if (lastLetter == letter) {
+// 				letterCount++;
 
-				letterCount++;
+// 			} else {
+// 				result += _compressSequence(lastLetter, letterCount);
 
-			} else {
-				result += _compressSequence(lastLetter, letterCount);
+// 				lastLetter = letter;
+// 				letterCount = 1;
+// 			}
+// 		}
+// 	}
 
-				lastLetter = letter;
-				letterCount = 1;
-			}
-		}
-	}
-
-	result += _compressSequence(lastLetter, letterCount);
+// 	result += _compressSequence(lastLetter, letterCount);
 
 
-	return result;
-}
-
-function RLE(text) {
-
-	var lastLetter = "";
-	var letterCount = 1;
-	var result = "";
-
-	for (l in text) {
-		var letter = text[l];
-
-		
-		if (lastLetter == letter) {
-			letterCount++;
-
-		} else {
-
-			result += _compressSequence(lastLetter, letterCount);
-
-			lastLetter = letter;
-			letterCount = 1;
-		}
-	}
-
-	result += _compressSequence(lastLetter, letterCount);
-
-	return result;
-}
-
-function calculateEntropy(dictionary, length) {
-	var entropy = 0;
-
-	for (letter in dictionary) {
-		var frequency = dictionary[letter].frequency;
-		entropy -= frequency * (Math.log(frequency) / Math.log(2));
-	}
-
-	return entropy;
-}
+// 	return result;
+// }
 
 
 function _createDictionary (text, length) {
@@ -101,7 +52,7 @@ function _createDictionary (text, length) {
 }
 
 
-function compressInupt(input) {
+function compressText(input) {
 
 	var field = $(input);
 	var text = field.value;
@@ -109,17 +60,18 @@ function compressInupt(input) {
 
 	var dictionary = _createDictionary(text, length);
 
-	$(input + 'Entropy').innerText = calculateEntropy(dictionary, length);;
+	$(input + 'Entropy').innerText = entropy(dictionary, length);;
 	$(input + 'RLE').innerText = RLE(text);
-	huffman(dictionary, input);
+	$(input + 'Huffman').innerText = huffman(dictionary);
+	
 }
 
 function initialize() {
 	
 	utils.addListener($('input1'), 'keyup', function () {
-		compressInupt('input1');
+		compressText('input1');
 	});
-	compressInupt('input1');
+	compressText('input1');
 }
 
 utils.addListener(window, 'load', initialize);

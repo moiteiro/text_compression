@@ -1,15 +1,15 @@
 
 
-function huffman(dictionary, input) {
+function huffman(dictionary) {
 
-	_print = function (dictionary, input) {
+	_print = function (dictionary) {
 		var result = ""
 		for (i in dictionary) {
-			result += dictionary[i].caracter + " = " + dictionary[i].huffman + "</br>";
+			result += dictionary[i].caracter + " = " + dictionary[i].huffman + "\n";
 		}
 
-		$(input+"Huffman").innerHTML = result;
-		console.log(dictionary)
+		console.log(dictionary);
+		return result;
 	}
 
 	_improvingDictionary = function(dictionary) {
@@ -58,7 +58,7 @@ function huffman(dictionary, input) {
 		letterCode = "0" + letterCode;
 	}
 	
-	_print(dictionary, input)
+	return _print(dictionary);
 }
 
 
