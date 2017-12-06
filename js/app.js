@@ -1,5 +1,3 @@
-function Huffman() {}
-
 function _compressSequence(lastLetter, letterCount) {
 	if (letterCount > 3) {
 		
@@ -113,6 +111,7 @@ function compressInupt(input) {
 
 	$(input + 'Entropy').innerText = calculateEntropy(dictionary, length);;
 	$(input + 'RLE').innerText = RLE(text);
+	huffman(dictionary, input);
 }
 
 function initialize() {
