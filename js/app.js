@@ -71,7 +71,17 @@ function initialize() {
 	utils.addListener($('input1'), 'keyup', function () {
 		compressText('input1');
 	});
+
+	utils.addListener($('input2'), 'keyup', function () {
+		compressText('input2');
+	});
+
+	utils.addListener($('input3'), 'keyup', function () {
+		compressText('input3');
+	});
 	compressText('input1');
+	compressText('input2');
+	compressText('input3');
 }
 
 utils.addListener(window, 'load', initialize);
