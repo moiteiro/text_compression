@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>T&oacute;pico em sistemas multim&iacute;dia</title>
-	<meta charset="utf-8">
 	<script type="text/javascript" src="js/core.js"></script>
 	<script type="text/javascript" src="js/events.js"></script>
 	<script type="text/javascript" src="js/entropy.js"></script>
@@ -10,88 +9,107 @@
 	<script type="text/javascript" src="js/huffman.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 
-	<style type="text/css">
-		input {
-			width: 400px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-	<h1>Compreens&atilde;o de texto</h1>
+	<div class="container">
+		<div class="row">
+			<h1>Compressão de texto</h1>
+		</div>
 
-	<p>Visualizar no Resposit&oacute;rio: <a href="https://github.com/moiteiro/text_compression">GitHub</a></p>
+		<div class="row">
+			<p>Visualizar no Resposit&oacute;rio: <a href="https://github.com/moiteiro/text_compression">GitHub</a></p>
 
-	<ul>
-		<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/entropy.js">Entropy</a></li>
-		<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/RLE.js">RLE</a></li>
-		<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/huffman.js">Huffman</a></li>
-	</ul>
+			<ul>
+				<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/entropy.js">Entropy</a></li>
+				<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/RLE.js">RLE</a></li>
+				<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/huffman.js">Huffman</a></li>
+			</ul>
+		</div>
 
-	<p>Visualizar localmente</p>
+		<div class="row">
+			<p>Visualizar localmente</p>
 
-	<ul>
-		<li><a href="js/entropy.js">Entropy</a></li>
-		<li><a href="js/RLE.js">RLE</a></li>
-		<li><a href="js/huffman.js">Huffman</a></li>
-	</ul>
+			<ul>
+				<li><a href="js/entropy.js">Entropy</a></li>
+				<li><a href="js/RLE.js">RLE</a></li>
+				<li><a href="js/huffman.js">Huffman</a></li>
+			</ul>
+		</div>
 
-	<table border="1">
-		<thead>
-			<tr>
-				<th>Original Text</th>
-				<th>Entropy</th>
-				<th>RLE</th>
-				<th>Huffman</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>
-					<input type="text" name="input1" id="input1" value="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeettttttttxz">
-				</td>
-				<td>
-					<span id="input1Entropy"></span>
-				</td>
-				<td>
-					<span id="input1RLE"></span>
-				</td>
-				<td>
-					<span id="input1Huffman"></span>
-				</td>
-			</tr>
+		<div class="row">
+			<div class="col-md-12">
+				<p>Todos os campos abaixo são editáveis. Ao modificar seus valores, todos as compressões são processadas imediamente.</p>
+			</div>
+		</div>
 
-			<tr>
-				<td>
-					<input type="text" name="input2" id="input2" value="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeettttttttx!">
-				</td>
-				<td>
-					<span id="input2Entropy"></span>
-				</td>
-				<td>
-					<span id="input2RLE"></span>
-				</td>
-				<td>
-					<span id="input2Huffman"></span>
-				</td>
-			</tr>
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Original Text</th>
+							<th>Entropy</th>
+							<th>RLE</th>
+							<th>Huffman</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div class="form-group">
+									<textarea class="form-control" rows="3" id="input1">eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeettttttttxz</textarea>
+									
+								</div>
+							</td>
+							<td>
+								<span id="input1Entropy"></span>
+							</td>
+							<td>
+								<span id="input1RLE"></span>
+							</td>
+							<td>
+								<span id="input1Huffman"></span>
+							</td>
+						</tr>
 
-			<tr>
-				<td>
-					<input type="text" name="input3" id="input3" value="eeeeeeeeeerrrreeeeeeeeeeéééééééeeeeeeeetteeeeeeettttttttx!!!!!!">
-				</td>
-				<td>
-					<span id="input3Entropy"></span>
-				</td>
-				<td>
-					<span id="input3RLE"></span>
-				</td>
-				<td>
-					<span id="input3Huffman"></span>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	
-	
+						<tr>
+							<td>
+								<div class="form-group">
+									<textarea class="form-control" rows="3" id="input2">eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeettttttttx!</textarea>
+								</div>
+							</td>
+							<td>
+								<span id="input2Entropy"></span>
+							</td>
+							<td>
+								<span id="input2RLE"></span>
+							</td>
+							<td>
+								<span id="input2Huffman"></span>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="form-group">
+									<textarea class="form-control" rows="3" id="input3">eeeeeeeeeerrrreeeeeeeeeeéééééééeeeeeeeetteeeeeeettttttttx!!!!!!</textarea>
+								</div>
+							</td>
+							<td>
+								<span id="input3Entropy"></span>
+							</td>
+							<td>
+								<span id="input3RLE"></span>
+							</td>
+							<td>
+								<span id="input3Huffman"></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
