@@ -12,23 +12,26 @@ function huffman(dictionary) {
 		return result;
 	}
 
+
+	// this function converts the dictionary to an array of objects.
+	// this way, we can sort each letter by its frenquecy.
 	_improvingDictionary = function(dictionary) {
-		table = [];
+		tmp_dic = [];
 
 		for (i in dictionary) {
 
 			// this is a langague safety measure to make sure I'm getting only the attributes
-			// I created when was generating the dictionary.
+			// I created when was generated the dictionary.
 			if (dictionary.hasOwnProperty(i)) {
 				var obj = dictionary[i];
 				obj.caracter = i;
 				obj.huffman = "";
-				table.push(obj);
+				tmp_dic.push(obj);
 			}
 		}
 
-		// ordering new dictionary
-		return table.sort(function (a, b) {
+		// sorting and returning the new dictionary.
+		return tmp_dic.sort(function (a, b) {
 			if (a.count > b.count)
 				return -1;
 			if (a.count < b.count)
@@ -37,16 +40,10 @@ function huffman(dictionary) {
 		})
 	}
 
-
-	// Adpating dictionary for new usage.
-	// Before we had a object where every letter in the dictionary was a object.
-	// Now we have a array of object, this way we can order accordingly with the percentage
 	dictionary = _improvingDictionary(dictionary);
 	originalSize = dictionary.length;
 
-	var totalPercentage = 0;
 	var letterCode = "1";
-
 
 	for(i in dictionary) {
 

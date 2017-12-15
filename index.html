@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<script type="text/javascript" src="js/core.js"></script>
 	<script type="text/javascript" src="js/events.js"></script>
+	<script type="text/javascript" src="js/_dictionary.js"></script>
 	<script type="text/javascript" src="js/entropy.js"></script>
 	<script type="text/javascript" src="js/RLE.js"></script>
 	<script type="text/javascript" src="js/huffman.js"></script>
@@ -25,6 +26,7 @@
 				<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/entropy.js">Entropy</a></li>
 				<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/RLE.js">RLE</a></li>
 				<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/huffman.js">Huffman</a></li>
+				<li><a href="https://github.com/moiteiro/text_compression/blob/master/js/_dictionary.js">_dicion&aacute;rio</a></li>
 			</ul>
 		</div>
 
@@ -32,15 +34,17 @@
 			<p>Visualizar localmente</p>
 
 			<ul>
-				<li><a href="js/entropy.js">Entropy</a></li>
-				<li><a href="js/RLE.js">RLE</a></li>
-				<li><a href="js/huffman.js">Huffman</a></li>
+				<li><a href="js/entropy.js">js/Entropy</a></li>
+				<li><a href="js/RLE.js">js/RLE</a></li>
+				<li><a href="js/huffman.js">js/Huffman</a></li>
+				<li><a href="js/_dictionary.js">js/_dicion&aacute;rio</a></li>
 			</ul>
 		</div>
 
 		<div class="row">
 			<div class="col-md-12">
 				<p>Todos os campos abaixo são editáveis. Ao modificar seus valores, todos as compressões são processadas imediamente.</p>
+				<p>O primeiro campo possui o botao de upload de arquivo. Caso o botao n&atilde;o funcione, o conte&uacute;o pode ser colado diretamente no campo.</p>
 			</div>
 		</div>
 
@@ -59,6 +63,7 @@
 						<tr>
 							<td>
 								<div class="form-group">
+									<input type="file" name="file" id="file">
 									<textarea class="form-control" rows="3" id="input4"></textarea>
 								</div>
 							</td>

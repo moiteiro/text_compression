@@ -6,7 +6,7 @@ function RLE(text) {
 			return "!" + lastLetter + letterCount;
 			
 		} else {
-			// cheat
+			// cheat - this creates a string of characters of lastLetter
 			return Array(letterCount + 1).join(lastLetter);
 		}
 	}
@@ -19,7 +19,6 @@ function RLE(text) {
 	for (l in text) {
 		var letter = text[l];
 
-		
 		if (lastLetter == letter) {
 			letterCount++;
 
